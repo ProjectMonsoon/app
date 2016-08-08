@@ -1,14 +1,28 @@
 import logging
 
-from flask import Flask, error
-
+from flask import Flask, redirect, render_template,request
+from forms import RegistrationForm
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return redirect('/signmein')
+
+app.secret_key = 'you-will-never-guess'
+
+@app.route('/signmein', methods=['GET', 'POST'])
+def signmein():
+    form = RegistrationForm()
+    if request.method == 'POST':
+        return redirect('/success')
+    else:
+        return render_template('signup.html', form=form)
+
+@app.route('/success')
+def success_signin():
+    return 'Signin success'
 
 
 @app.errorhandler(500)
