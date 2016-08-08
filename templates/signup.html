@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Signup -Project Monsoon</title>
+
+  <!-- CSS  -->
+ <!--<link rel="stylesheet" href="{{url_for('static',filename='css/material-icons.css') }}" />-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href="{{url_for('static',filename='css/materialize.css')}}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{{url_for('static',filename='css/style.css') }}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link rel="stylesheet" href="{{url_for('static',filename='font-awesome/css/font-awesome.min.css') }}" />
+
+</head>
+<body style="background-image: url('static/img/Rain-Drops-Wallpaper.jpg'); background-size: cover; background-position: top center;">
+  <!-- Navbar -->
+<div class="navbar-fixed">
+  <nav class="teal">
+
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center"><span class="white-text">Monsoon</span></a>
+    </div>
+  </nav>
+  </div>
+
+
+   
+            
+<div class="signup-wrapper">
+  <div class="container margin-signin-top">
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+
+    <div class="row">
+      <div class="col s12 m5">
+        <div class="card-panel teal">
+          <span class="white-text">
+          </span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+            
+    <div class="row">
+      <div class="col l5 m3 s4 offset-s3 offset-m1 offset-l4">
+        <div class="card">
+          <div class="card-content white-text">
+            <div class="card teal margin-2 hoverable  ">
+              <span class="card-title"><p class="center">Sign Up</p></span>
+              <div class="card-action">
+                <div class="row">
+                <div class="col offset-s1 offset-m0" name="wrapper-for-social-plugin">
+                  <a href="#pablo" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-facebook-square"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-twitter"></i>
+                  </a>
+                  <a href="#pablo" class="btn btn-simple btn-just-icon">
+                    <i class="fa fa-google-plus"></i>
+                  </a>
+                </div>
+                </div>
+              </div>
+            </div>
+
+          
+          <div class="section ">
+          <p class="blue-grey-text center"> Or,Use Email</p>
+            <form id="signin" action="{{url_for('signmein')}}" method="post">
+            {{ form.hidden_tag() }}
+            <div class="row">
+              <div class="input-field col s10 offset-s1 text-black">
+              <i class="material-icons prefix">account_circle</i>
+                {{ form.username }}
+                {{form.username.label}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s10 offset-s1 text-black">
+              <i class="material-icons prefix">email</i>
+             {{ form.email(class="validate") }}
+                {{form.email.label}}
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s10 offset-s1 text-black">
+               <i class="material-icons prefix">lock</i>
+                {{ form.password (class="validate")}}
+                {{form.password.label}}
+              </div>
+              </div>
+            
+            <div class="row">
+              <p class="col offset-s1">
+                {{form.test5}}
+                {{form.test5.label}}
+                    <a href="tandc.html">
+                      <i class="material-icons right">
+                    chevron_right
+                    </i>                      
+                    </a>
+                
+              </p>
+            </div>
+            </div>
+            
+            <div class="row col s8 left offset-s3">
+             <button class="btn waves-effect waves-light teal" type="submit" name="action">Sign up
+    <i class="material-icons right">send</i>
+  </button>
+              
+            </div>
+            </div>
+            </form>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div
+  </div>
+  <!--  Scripts-->
+  <script src="{{url_for('static',filename='js/jquery-2.1.1.js') }}"></script>
+  <script src="{{url_for('static',filename='js/materialize.js') }}"></script>
+  <script src="{{url_for('static',filename='js/init.js') }}"></script>
+
+
+  </body>
+</html>
